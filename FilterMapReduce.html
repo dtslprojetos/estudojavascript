@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter, Map, Reduce Functions</title>
+</head>
+<body>
+
+	<script>
+		/*
+			Array.Filter returns a new array of elements which pass the given test functions. It loops over all the elements of the source array, calling test function for each item, if test function returns true, the element will be added to the new array.
+		*/
+		var numArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+		// returns only even numbers
+		var evenOnly = numArray.filter(function(number){
+			return number % 2 === 0;
+		});
+
+		console.log(evenOnly);
+
+		// using with objects, returns only female objects
+		var persons = [
+  			 {id : 1, name : "John", tags : "male"}, 
+ 			 {id : 2, name : "Alice", tags : "female"}, 
+ 			 {id : 3, name : "Roger", tags : "male"},
+ 			 {id : 4, name : "Adam", tags : "male"},
+ 			 {id : 2, name : "Mariah", tags : "female"}, 
+ 			 {id : 3, name : "Alex", tags : "male"},
+ 			 {id : 4, name : "Adam", tags : "male"},
+  			 {id : 5, name : "Alex", tags : "male"}
+		];
+
+		var femaleOnly = persons.filter(function(personObj){
+			return personObj.tags.indexOf('female') > -1;
+		});
+
+		console.log(femaleOnly);
+
+		/*
+			Array.Mariap returns a new array by transforming each element of the source array to some other format based on the supplied transformation method.
+		*/
+
+		var arrNumbers = [1,2,3,4,5,6,7,8,9,10];
+
+		var squareAll = arrNumbers.map(function(numbertoSquare){
+			return Math.pow(numbertoSquare, 2);
+		});
+
+		console.log(squareAll);
+
+		// now using with objects
+		var persons = [
+  			{id : 1, name : "John", tags : "javascript"}, 
+  			{id : 2, name : "Alice", tags : "javascript"}, 
+  			{id : 3, name : "Roger", tags : "java"},
+  			{id : 4, name : "Adam", tags : "javascript"},
+  			{id : 5, name : "Alex", tags : "java"}
+		];
+
+		var personDev = persons.map(function(pers){
+			return pers.name + " is a " + pers.tags + " programmer";
+		});
+
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>
